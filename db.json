@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": 1
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": "5",
+      "title": "GHGG",
+      "price": 66,
+      "like": 666,
+      "quantity": 666
+    }
+  ]
+}

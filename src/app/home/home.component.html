@@ -1,0 +1,66 @@
+
+<button type="submit" (click)="getAlertStock()">stock</button>
+{{AlertStock}}
+
+<!-- interpolation  -->
+{{title | uppercase }}
+<br/>
+<br/>
+<!-- eventBinding  -->
+<input type="submit" value="event"(click)= sayHello() > 
+<br/>
+<br/>
+<div [style.backgroundColor]="color" >
+    propertyBinding
+</div>
+
+<br/>
+<input type="text" placeholder="color" [(ngModel)]="color">
+<br/>
+<br/>
+<input type="number" placeholder="price" [(ngModel)]="price" >
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>price</th>
+        <th>quantity</th>
+        <th>like</th>
+      
+
+    </tr>
+
+<!----- TWO WAY BINDING  -->
+
+    <tr *ngFor="let p of listProducts , let i=index" >
+        <ng-template [ngIf]="p.price > price ">
+
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td  >{{p.price}}</td>
+            <td>{{p.quantity}}</td>
+            <td>{{p.like}}</td>
+            <input class="btn btn-info" type="submit" value="like"(click)= addLike(i) > 
+            <input class="btn btn-danger" [disabled]="p.quantity==0" type="submit" value="buy"(click)= removeQuantity(i) > 
+            <button class="btn btn-danger" [routerLink]="['/product',p.id]"> Details </button>
+            <button class="btn btn-danger" [routerLink]="['/product']" (click)="supresssion(p.id)"> Delete </button>
+            <button class="btn btn-danger" [routerLink]="['/updateProduct',p.id]"> Update </button>
+        </ng-template>
+       
+
+        
+    </tr>
+</table>
+<br/>
+<br/>
+
+<!----- autre methode -->
+
+<input type="number" placeholder="price" [(ngModel)]="price" >
+<div *ngFor="let p of listProducts">
+    <div *ngIf="p.price > price ">
+        {{p.title}}
+        {{p.price}}
+    </div>
+
+</div>

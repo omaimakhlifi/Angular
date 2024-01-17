@@ -1,0 +1,9 @@
+
+<div class="row">
+<div class="col" *ngFor="let t of listProduit">
+
+    <app-show-one-product #c [p]="t" (notif)="afterReceiveData($event)"></app-show-one-product> <!-- #c : variable de reference -->
+
+    <button (click)="c.showMsgChild()">show</button>
+</div>
+</div>
